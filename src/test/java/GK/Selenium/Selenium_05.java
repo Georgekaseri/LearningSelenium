@@ -25,6 +25,10 @@ public class Selenium_05 {
         chromeOptions.addArguments("--window-size=800,600");
         chromeOptions.addArguments("--incognito");
 //        chromeOptions.addArguments( "--headless" );
+
+
+
+
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://www.youtube.com/");
         System.out.println(driver.getTitle());

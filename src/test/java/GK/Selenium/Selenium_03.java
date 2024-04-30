@@ -17,6 +17,11 @@ public class Selenium_03 {
         ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.addArguments( "--headless" );
         chromeOptions.addExtensions(new File("/Users/george/Documents/Adblock-Plus-free-ad-blocker.crx"));
+
+
+
+
+
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://www.youtube.com/");
         System.out.println(driver.getTitle());

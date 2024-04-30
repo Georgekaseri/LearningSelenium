@@ -22,6 +22,7 @@ public class Selenium_02 {
         // System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
         // Max -> Selenium 4
 
+
 //        WebDriver driver = new EdgeDriver();
 //        WebDriver driver2 = new ChromeDriver();
 //        WebDriver driver3 = new FirefoxDriver();

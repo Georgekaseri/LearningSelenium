@@ -1,0 +1,87 @@
+                                                Xpath
+                                        ======================
+
+                //tagName[@attribute and Value]
+                    example : - //input[@id="txt-password"]
+                                /*[@class='barone']
+
+
+                                              Using OR & AND
+                                         ======================
+
+  In the below XPath expression, it identifies the elements whose single or both conditions are true.
+                    example : -   //*[@type='submit' or @name='btnReset']
+
+  In AND expression, two conditions are used, both conditions should be true to find the element.
+  It fails to find element if any one condition is false.
+
+                    example : - //input[@type='submit' and @name='btnLogin']
+
+
+
+
+                                               Xpath Functions
+                                            ======================
+
+contains() [By text]
+starts-with() [By text]
+text()
+
+
+   contains() [By text]
+   ---------------------
+
+   //tageName[contains(text(),'textvalue')]
+            example : - //a[contains(text(),'Make Appointment')]
+
+   //tageName[contains(@attribute and value)]
+            example : - //input[contains(@id,'datepicker')]
+
+
+   starts-with() [By text]
+   -----------------------
+   //tageName[start-with(@attribute and value)]
+            example : - //lable[start-with(@id,'message')]
+
+  text()
+  ----------
+  //tagName[text()='text']
+            example : - //td[text()='UserID']
+
+
+
+                                                 Xpath Axes
+                                            ======================
+  Ancestor
+  Child, Parent
+  Descendant
+  Following, following-sibling
+  Self
+
+
+  Ancestor
+  ----------
+  The ancestor axis selects all ancestors element (grandparent, parent, etc.)
+  of the current node as shown in the below screen.
+
+            example : - //div[@class="Mammal"]/ancestor::div
+
+  Child
+  -------
+  Selects all children elements of the current node (Java)
+
+            example : - //div[@class="Mammal"]/child::div
+
+  Parent
+  -------
+
+            example : - //div[@class="Mammal"]/parent::div
+  Sibling
+  -------
+            example : - //div[@class="Mammal"]/sibling::div
+
+
+
+
+
+

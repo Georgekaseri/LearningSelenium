@@ -3,7 +3,72 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/george/Documents/LearningSelenium">
         <classes>
-           <class name="GK.Selenium.Selenium_10"></class>
+            <class name="GK.Selenium.Practice.SimpleForm">
+                <methods>
+                    <include name="testFillForm"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Practice.Y_Axis">
+                <methods>
+                    <include name="testStudentInquire"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_02">
+                <methods>
+                    <include name="testMethods"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_03">
+                <methods>
+                    <include name="testMethod"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_10">
+                <methods>
+                    <include name="testVWoLogin"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_11">
+                <methods>
+                    <include name="testVWoLogin"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_12">
+                <methods>
+                    <include name="testVWoLogin12"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_13">
+                <methods>
+                    <include name="testVWoLogin13"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_14">
+                <methods>
+                    <include name="testVWoLogin13"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_15">
+                <methods>
+                    <include name="testKatalon15"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_16">
+                <methods>
+                    <include name="testKatalon16"/>
+                </methods>
+            </class>
+            <class name="GK.Selenium.Selenium_17">
+                <methods>
+                    <include name="testVWOLogin_positiv"/>
+                    <include name="testVWOLogin_negative"/>
+                </methods>
+            </class>
+            <class name="GK.Testcase02">
+                <methods>
+                    <include name="titlePage"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

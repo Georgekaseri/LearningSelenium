@@ -83,6 +83,62 @@ text()
 
 
 
+                                                     CSS Selector
+                                                  ==================
+   CSS Selectors - tagName id -> #
+   class -> .
+   custom [@attribute=value]
+   CSS selectors are used to select elements in an HTML or XML document. (tag based lang.)
+   tag -> <pramod> value</pramod>
+   ID, className, name, customAttribute
+   LinkText, Partial Lik - Anchor Tag finder by Selenium
+
+    Xpath -> //input[@id='login-username'] -> input#login-username
+    //input[@data-qa='hocewoqisi'] -> input[data-qa='hocewoqisi']
+    //  input[data-qa$='si'] -> $ ends with, ^ starts with * contains
+
+
+   Examples : -
+   ===============
+
+  Tag and ID
+  -----------
+  	input#email
+  	#email
+
+
+  Tag and Class
+  ---------------
+  	Input.inputtext
+  	.inputtest
+       div.first > span    (corresponding CSS)
+       div.first > span:nth-child(1)
+       div.first>span:nth-child(2n+1)     (Run randomly)
+       div.first>span:nth-child(2n)       (Run Even)
+
+
+
+  Tag and attribute
+  ------------------
+  	input[name="email"]
+  	input[data-testid="royal_email"]
+  	input[placeholder="Email address or phone number"]
+
+
+Tag, Class and attribute
+-------------------------
+	input.inputtext[data-testid="royal_email"]
+
+
+Tag, ID and attribute
+-----------------------
+	input#email[placeholder="Email address or phone number"]
+
+
+
+
+
+
 
 
 

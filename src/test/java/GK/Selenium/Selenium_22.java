@@ -6,17 +6,15 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Selenium_21 {
+public class Selenium_22 {
     ChromeDriver driver;
 
     @BeforeTest
@@ -35,36 +33,17 @@ public class Selenium_21 {
         WebElement email = driver.findElement(By.xpath("//input[@id='login-username']"));
         email.sendKeys("georgekaseri22@gmail.com");
         WebElement password = driver.findElement(By.xpath("//*[@id=\"login-password\"]"));
-        password.sendKeys("Hyderabad");
+        password.sendKeys("Leeds85@");
         WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"js-login-btn\"]"));
         submitBtn.click();
 
-        WebElement error_msg = driver.findElement(By.xpath("//*[@id=\"js-notification-box-msg\"]"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3000));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-qa='lufexuloga']")));
 
-        wait.until(ExpectedConditions.textToBePresentInElement(error_msg,"Your email, password, IP address or location did not match"));
+        WebElement loggedin_username = driver.findElement(By.cssSelector("[data-qa='lufexuloga']"));
 
-        System.out.println("Error Message -> " + error_msg.getText());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("Logged in User details -> " + loggedin_username.getText());
 
 
 

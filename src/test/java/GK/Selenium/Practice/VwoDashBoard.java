@@ -1,4 +1,4 @@
-package GK.Selenium;
+package GK.Selenium.Practice;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
@@ -13,8 +13,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
-public class Selenium_22 {
+public class VwoDashBoard {
     ChromeDriver driver;
 
     @BeforeTest
@@ -37,11 +38,28 @@ public class Selenium_22 {
         WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"js-login-btn\"]"));
         submitBtn.click();
 
+
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-qa='lufexuloga']")));
 
         WebElement logged_in_username = driver.findElement(By.cssSelector("[data-qa='lufexuloga']"));
         System.out.println("Logged in User details -> " + logged_in_username.getText());
+
+
+
+        List<WebElement> dashBoardLinks = driver.findElements(By.xpath("//*[@data-qa=\"nav-group\"]"));
+        int i = 0;
+        for (WebElement linksList : dashBoardLinks){
+            System.out.println(linksList.getText());
+            if (i == 5){
+                linksList.click();
+            }
+            i++;
+
+
+        }
+
 
 
 
@@ -52,6 +70,6 @@ public class Selenium_22 {
 
     @AfterTest
     public void closeBrowser(){
-        driver.quit();
+//        driver.quit();
     }
 }

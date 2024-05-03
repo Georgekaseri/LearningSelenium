@@ -2,11 +2,14 @@ package GK.Selenium;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -14,7 +17,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Selenium_22 {
+public class Selenium_23 {
     ChromeDriver driver;
 
     @BeforeTest
@@ -37,10 +40,15 @@ public class Selenium_22 {
         WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"js-login-btn\"]"));
         submitBtn.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-qa='lufexuloga']")));
 
-        WebElement logged_in_username = driver.findElement(By.cssSelector("[data-qa='lufexuloga']"));
+        // Fluent Wait
+        Wait<ChromeDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class);
+
+
+        WebElement logged_in_username = wait.until(driver -> driver.findElement(By.cssSelector("[data-qa='lufexuloga']")));
         System.out.println("Logged in User details -> " + logged_in_username.getText());
 
 

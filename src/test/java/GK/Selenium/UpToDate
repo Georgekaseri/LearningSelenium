@@ -9,9 +9,9 @@
 ●                           Select Tag (Dropdowns)
                            ------------------------
                     <select>
-                    <option> value 1 </option>
-                    <option> value 2 </option>
-                    <option> value 3 </option>
+                    <option 1> value 1 </option>
+                    <option 2> value 2 </option>
+                    <option 3> value 3 </option>
                     </select>
     Static Select - Selenium - Select class provided by the Selenium to handle this kind of scenario
     Select has 3 methods which we can use to select the dropdown

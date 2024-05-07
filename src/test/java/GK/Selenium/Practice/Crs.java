@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -30,8 +31,21 @@ public class Crs {
        driver.get("https://ircc.canada.ca/english/immigrate/skilled/crs-tool.asp");
         driver.manage().window().maximize();
 
-        WebElement marriageStatus = driver.findElement(By.xpath("//*[@class=\"form-control mrgn-bttm-md valid\"]"));
-        marriageStatus.isSelected();
+     WebElement dropdownOptions = driver.findElement(By.xpath("//*[@id=\"q1\"]"));
+
+     Select select = new Select(dropdownOptions);
+     select.selectByVisibleText("Common-Law");
+
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100000));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" //*[@id=\"q2i\"]")));
+
+     WebElement common = driver.findElement(By.xpath("//*[@id=\"q3\"]"));
+     common.click();
+     Select select1 = new Select(common);
+     select1.selectByVisibleText("Yes");
+
+
 
 
 
@@ -44,6 +58,6 @@ public class Crs {
 
     @AfterTest
     public void closeBrowser(){
-        driver.quit();
+//        driver.quit();
     }
 }

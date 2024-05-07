@@ -1,0 +1,19 @@
+
+
+
+ TR is table Row
+ TH is table header
+ TD is table data in the cell
+
+
+ <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+
+   <tr>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+    </tr>

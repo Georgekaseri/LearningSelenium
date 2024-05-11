@@ -1,18 +1,15 @@
-package GK.Selenium.Exercise.Webtable;
+package GK.Selenium.Practice;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-public class Selenium_27 {
+public class Web_Table {
     ChromeDriver driver;
 
     @BeforeTest
@@ -31,21 +28,21 @@ public class Selenium_27 {
         driver.manage().window().maximize();
 
         /*
-        //table[@id="customers"]/tbody/tr[5]/td[2] : - Helen Bennett
+        //table[@id="customers"]/tbody/tr[5]/td[2] : - Yoshi Tannamuri
 
-        /following-sibling::td : - Country Name
+        /following-sibling::td  : - Country Name
 
-        Print all the data in the table and where is Halen Bennett and which country she is belongs to
+
+
+        Print all the data in the table and where is Yoshi Tannamuri and which country she is belongs to
          */
-
 
         String first_part = " //table[@id=\"customers\"]/tbody/tr[";
         String second_part = "]/td[";
         String third_part = "]";
 
-
-        int row = driver.findElements(By.xpath("//table[@id=\"customers\"]/tbody/tr")).size();   // Row is started from 2 to 7
-        int column = driver.findElements(By.xpath("//table[@id=\"customers\"]/tbody/tr[2]/td")).size(); // Column from started from 2
+        int row = driver.findElements(By.xpath("//table[@id=\"customers\"]/tbody/tr")).size();
+        int column = driver.findElements(By.xpath("//table[@id=\"customers\"]/tbody/tr[2]/td")).size();
 
 
         for (int i = 2; i <= row; i++) {
@@ -54,11 +51,11 @@ public class Selenium_27 {
                 String  data = driver.findElement(By.xpath(dynamic_xpath)).getText();
                 System.out.println(data);
 
-                if (data.contains("Helen Bennett")){
+                if (data.contains("Yoshi Tannamuri")){
                     String country_path = dynamic_xpath+ "/following-sibling::td";
                     String country_text = driver.findElement(By.xpath(country_path)).getText();
                     System.out.println("--------------- ");
-                    System.out.println("Helen Bennett is from : - " + country_text );
+                    System.out.println("Yoshi Tannamuri is from : - " + country_text );
                 }
 
             }

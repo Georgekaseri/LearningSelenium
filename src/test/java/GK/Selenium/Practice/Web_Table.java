@@ -46,27 +46,23 @@ public class Web_Table {
 
 
         for (int i = 2; i <= row; i++) {
-            for (int j = 1; j <= column; j++) {
+             for (int j = 1; j <= column; j++) {
                 String dynamic_xpath = first_part + i + second_part + j + third_part;
-                String  data = driver.findElement(By.xpath(dynamic_xpath)).getText();
+                String data = driver.findElement(By.xpath(dynamic_xpath)).getText();
                 System.out.println(data);
 
-                if (data.contains("Yoshi Tannamuri")){
-                    String country_path = dynamic_xpath+ "/following-sibling::td";
+                if (data.contains("Yoshi Tannamuri")) {
+                    String country_path = dynamic_xpath + "/following-sibling::td";
                     String country_text = driver.findElement(By.xpath(country_path)).getText();
-                    System.out.println("--------------- ");
-                    System.out.println("Yoshi Tannamuri is from : - " + country_text );
+                    System.out.println("==================== ");
+                    System.out.println("Yoshi Tannamuri is from : - " + country_text);
                 }
+
 
             }
 
+
         }
-
-
-
-
-
-
 
 
 

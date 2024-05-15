@@ -38,11 +38,6 @@ public class Selenium_26 {
         ch2.click();
 
 
-
-
-
-
-
     }
 
     @AfterTest

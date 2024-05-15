@@ -32,6 +32,8 @@ public class Simple_Alert {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         driver.manage().window().maximize();
 
+
+
         WebElement simpleJsAlert = driver.findElement(By.xpath("//*[@onclick=\"jsAlert()\"]"));
         simpleJsAlert.click();
 
@@ -52,6 +54,8 @@ public class Simple_Alert {
 
 
     }
+
+
 
     @AfterTest
     public void closeBrowser() {

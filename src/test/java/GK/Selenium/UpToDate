@@ -15,3 +15,9 @@
                     </select>
     Static Select - Selenium - Select class provided by the Selenium to handle this kind of scenario
     Select has 3 methods which we can use to select the dropdown
+
+●  Table
+
+●                               SVG
+                        ------------------
+                        //*[local-name()='svg']

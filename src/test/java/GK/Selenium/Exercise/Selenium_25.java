@@ -60,6 +60,7 @@ public class Selenium_25 {
 
         Alert alert = driver.switchTo().alert();
         alert.sendKeys("Hyderabad");
+        alert.accept();
         String result = driver.findElement(By.xpath("//p[@id=\"result\"]")).getText();
         Assert.assertEquals(result, "You entered: Hyderabad ");
 

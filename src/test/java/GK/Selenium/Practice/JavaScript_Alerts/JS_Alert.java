@@ -1,4 +1,4 @@
-package GK.Selenium.Practice;
+package GK.Selenium.Practice.JavaScript_Alerts;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.Alert;
@@ -12,7 +12,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class JS_AlertConfirm {
+public class JS_Alert {
     ChromeDriver driver;
 
     @BeforeTest
@@ -24,20 +24,21 @@ public class JS_AlertConfirm {
     }
 
     @Test(groups = "QA")
-    @Description("JS Confim Button")
+    @Description("JS Alert")
     public void tesJsConfim() throws InterruptedException {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         driver.manage().window().maximize();
 
-        WebElement jsConfimbtn = driver.findElement(By.xpath("//*[@onclick=\"jsConfirm()\"]"));
-        jsConfimbtn.click();
+        WebElement jsAlert = driver.findElement(By.xpath("//*[@onclick=\"jsAlert()\"]"));
+        jsAlert.click();
 
-        Alert jsConfimAlert = driver.switchTo().alert();
-        //jsConfimAlert.accept(); // confirm and click on Ok button
-        jsConfimAlert.dismiss(); //
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
 
-        String confirmMsg = driver.findElement(By.xpath("//*[@id=\"result\"]")).getText();
-        Assert.assertEquals(confirmMsg,"You clicked: Cancel");
+        String displayMessage = driver.findElement(By.xpath("//*[@id=\"result\"]")).getText();
+        Assert.assertEquals(displayMessage,"You successfully clicked an alert");
+
+
 
 
 

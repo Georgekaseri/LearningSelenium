@@ -77,6 +77,6 @@ public class Selenium_27 {
 
     @AfterTest
     public void closeBrowser() {
-//        driver.quit();
+        driver.quit();
     }
 }

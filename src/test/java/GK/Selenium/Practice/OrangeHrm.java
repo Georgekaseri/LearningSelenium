@@ -1,7 +1,6 @@
 package GK.Selenium.Practice;
 
 import io.qameta.allure.Description;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
@@ -12,7 +11,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class JS_AlertConfirm {
+import java.util.List;
+
+public class OrangeHrm {
     ChromeDriver driver;
 
     @BeforeTest
@@ -24,22 +25,25 @@ public class JS_AlertConfirm {
     }
 
     @Test(groups = "QA")
-    @Description("JS Confim Button")
-    public void tesJsConfim() throws InterruptedException {
-        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+    @Description("Static Dropdown")
+    public void testdropDown() throws InterruptedException {
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().window().maximize();
 
-        WebElement jsConfimbtn = driver.findElement(By.xpath("//*[@onclick=\"jsConfirm()\"]"));
-        jsConfimbtn.click();
+        WebElement useName = driver.findElement(By.xpath("//*[@name=\"username\"]"));
+        useName.sendKeys("Admin");
 
-        Alert jsConfimAlert = driver.switchTo().alert();
-        //jsConfimAlert.accept(); // confirm and click on Ok button
-        jsConfimAlert.dismiss(); //
+        WebElement passwordInput = driver.findElement(By.xpath("//*[@type=\"password\"]"));
+        passwordInput.sendKeys("admin123");
 
-        String confirmMsg = driver.findElement(By.xpath("//*[@id=\"result\"]")).getText();
-        Assert.assertEquals(confirmMsg,"You clicked: Cancel");
+        WebElement loginBtn = driver.findElement(By.xpath("//*[@type=\"submit\"]"));
+        loginBtn.click();
+
+        Thread.sleep(3000);
 
 
+        String dashBoard = driver.findElement(By.xpath("//*[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]")).getText();
+        System.out.println("This is test : - "  + dashBoard);
 
 
 

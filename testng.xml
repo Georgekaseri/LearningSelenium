@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true"
           name="/Users/george/Documents/LearningSelenium/src/test/java/GK/Selenium/Practice/Make_Appointment.java">
         <classes>
-            <class name="GK.Selenium.Practice.Make_Appointment">
+            <class name="GK.Selenium.Practice.Mixed.Make_Appointment">
                 <methods>
                     <include name="testBookingAppointment"/>
                 </methods>

@@ -1,4 +1,4 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.Webtable;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class Selenium_29 {
+public class Table_html {
     ChromeDriver driver;
 
     @BeforeTest
@@ -24,32 +24,24 @@ public class Selenium_29 {
     }
 
     @Test(groups = "QA")
-    @Description("Static Dropdown")
-    public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.flipkart.com/";
+    @Description("Webtable")
+    public void testWebTable() throws InterruptedException {
+        String URL = "https://awesomeqa.com/webtable1.html";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement searchItem = driver.findElement(By.xpath("//*[@name=\"q\"]"));
-        searchItem.sendKeys("macmini");
+    WebElement table = driver.findElement(By.xpath("//*[@class=\"tsc_table_s13\"]"));
+    List<WebElement> row_in_table = table.findElements(By.tagName("tr"));
+        System.out.println(row_in_table.size());
 
+        for (int i = 0; i < row_in_table.size(); i++) {
 
-                            // SVG Element Tag
-                            //*[name()='svg']
-                           //*[local-name()='svg']
-                           //*[local-name()='svg'][0]
-        List<WebElement> svgElement = driver.findElements(By.xpath("(//*[name()='svg'])"));
-        WebElement search = svgElement.get(1);
-        search.click();
+            List<WebElement> col = row_in_table.get(i).findElements(By.tagName("td"));
+            for (WebElement e: col){
+                System.out.println(e.getText());
+            }
 
-
-
-
-
-
-
-
-
+        }
 
     }
 

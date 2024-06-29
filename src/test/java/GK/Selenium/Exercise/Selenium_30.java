@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class Selenium_29 {
+public class Selenium_30 {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,35 +26,26 @@ public class Selenium_29 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.flipkart.com/";
+        String URL = "https://www.amcharts.com/svg-maps/?map=india";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement searchItem = driver.findElement(By.xpath("//*[@name=\"q\"]"));
-        searchItem.sendKeys("macmini");
+        ////*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path'] -> 36 States
+        // Click on THE Tripura?
 
+        List<WebElement> states = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path']"));
 
-                            // SVG Element Tag
-                            //*[name()='svg']
-                           //*[local-name()='svg']
-                           //*[local-name()='svg'][0]
-        List<WebElement> svgElement = driver.findElements(By.xpath("(//*[name()='svg'])"));
-        WebElement search = svgElement.get(1);
-        search.click();
+        for (WebElement state : states) {
+            System.out.println(state.getAttribute("aria-label"));
+            if (state.getAttribute("aria-label").contains("Tripura ")) {
+                state.click();
 
-
-
-
-
-
-
-
-
-
+            }
+        }
     }
 
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
-    }
-}
+            @AfterTest
+            public void closeBrowser () {
+                driver.quit();
+            }
+        }

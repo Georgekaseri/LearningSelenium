@@ -1,4 +1,4 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.SVG;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class Selenium_29 {
+public class SVG_Example1 {
     ChromeDriver driver;
 
     @BeforeTest
@@ -30,17 +30,6 @@ public class Selenium_29 {
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement searchItem = driver.findElement(By.xpath("//*[@name=\"q\"]"));
-        searchItem.sendKeys("macmini");
-
-
-                            // SVG Element Tag
-                            //*[name()='svg']
-                           //*[local-name()='svg']
-                           //*[local-name()='svg'][0]
-        List<WebElement> svgElement = driver.findElements(By.xpath("(//*[name()='svg'])"));
-        WebElement search = svgElement.get(1);
-        search.click();
 
 
 

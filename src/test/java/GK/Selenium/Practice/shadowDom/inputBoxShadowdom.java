@@ -1,7 +1,8 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.shadowDom;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,9 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-public class Selenium_29 {
+public class inputBoxShadowdom {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,37 +25,26 @@ public class Selenium_29 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.flipkart.com/";
+        String URL = "https://selectorshub.com/xpath-practice-page/";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement searchItem = driver.findElement(By.xpath("//*[@name=\"q\"]"));
-        searchItem.sendKeys("macmini");
+        JavascriptExecutor js =(JavascriptExecutor) driver;
 
+        WebElement divScrolling = driver.findElement(By.xpath("//div[@id=\"userName\"]"));
+        js.executeScript("arguments[0].scrollIntoView(true);", divScrolling);
 
-                            // SVG Element Tag
-                            //*[name()='svg']
-                           //*[local-name()='svg']
-                           //*[local-name()='svg'][0]
-        List<WebElement> svgElement = driver.findElements(By.xpath("(//*[name()='svg'])"));
+        Thread.sleep(2000);
 
-        WebElement search = svgElement.get(1);
-        search.click();
-//        svgElement.get(1).click();
-
-
-
-
-
-
-
-
+        WebElement inputBoxPizza = (WebElement) js.executeScript("return document.querySelector(\"div#userName\").shadowRoot.querySelector(\"div#app2\").shadowRoot.querySelector(\"input#pizza\")");
+        inputBoxPizza.sendKeys("Pizza Pizza");
 
 
     }
 
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
-    }
-}
+
+            @AfterTest
+            public void closeBrowser () {
+                driver.quit();
+            }
+        }

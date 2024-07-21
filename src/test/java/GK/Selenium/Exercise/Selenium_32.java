@@ -1,18 +1,17 @@
 package GK.Selenium.Exercise;
 
 import io.qameta.allure.Description;
-import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
+import javax.swing.*;
 
-public class Selenium_30 {
+public class Selenium_32 {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,23 +25,32 @@ public class Selenium_30 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.amcharts.com/svg-maps/?map=india";
+        String URL = "https://awesomeqa.com/practice.html";
         driver.get(URL);
-//        driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
-        ////*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path'] -> 36 States
-        // Click on THE Tripura?
 
-        List<WebElement> states = driver.findElements(By.xpath("//*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path']"));
 
-        for (WebElement state : states) {
-            System.out.println(state.getAttribute("aria-label"));
-            if (state.getAttribute("aria-label").contains("Tripura ")) {
-                state.click();
 
-            }
-        }
+
+        WebElement firstName = driver.findElement(By.name("firstname"));
+
+
+        Actions actions = new Actions(driver);
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(firstName,"hello there")
+                .keyUp(Keys.SHIFT).build().perform();
+
+        WebElement rightClick = driver.findElement(By.xpath("//a[contains(text(),'Click here to Download File')]"));
+        actions.contextClick(rightClick).build().perform();
+
+
+
+
+
+
     }
+
 
             @AfterTest
             public void closeBrowser () {

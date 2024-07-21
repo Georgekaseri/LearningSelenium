@@ -1,18 +1,18 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.Action_Classes;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
-public class Selenium_29 {
+public class Mose_RightClick {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,28 +26,20 @@ public class Selenium_29 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.flipkart.com/";
+        String URL = "https://awesomeqa.com/practice.html";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement searchItem = driver.findElement(By.xpath("//*[@name=\"q\"]"));
-        searchItem.sendKeys("macmini");
+        WebElement firstName = driver.findElement(By.name("firstname"));
 
 
-                            // SVG Element Tag
-                            //*[name()='svg']
-                           //*[local-name()='svg']
-                           //*[local-name()='svg'][0]
-        List<WebElement> svgElement = driver.findElements(By.xpath("(//*[name()='svg'])"));
+        Actions actions = new Actions(driver);
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(firstName,"hello there")
+                .keyUp(Keys.SHIFT).build().perform();
 
-        WebElement search = svgElement.get(1);
-        search.click();
-//        svgElement.get(1).click();
-
-
-
-
-
+        WebElement rightClick = driver.findElement(By.xpath("//a[contains(text(),'Click here to Download File')]"));
+        actions.contextClick(rightClick).build().perform();
 
 
 
@@ -55,8 +47,9 @@ public class Selenium_29 {
 
     }
 
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
-    }
-}
+
+            @AfterTest
+            public void closeBrowser () {
+                driver.quit();
+            }
+        }

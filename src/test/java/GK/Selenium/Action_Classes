@@ -1,0 +1,23 @@
+
+                                    Methods of Action Class
+                                   ========================
+         Mouse Actions in Selenium:
+         --------------------------
+        doubleClick(): Performs double click on the element
+        clickAndHold(): Performs long click on the mouse without releasing it
+        dragAndDrop(): Drags the element from one point and drops to another
+        moveToElement(): Shifts the mouse pointer to the center of the element
+        contextClick(): Performs right-click on the mouse
+        hover():
+        scroll():
+        zoom():
+        shift ++
+
+        Keyboard Actions in Selenium:
+        ------------------------------
+        sendKeys(): Sends a series of keys to the element
+        keyUp(): Performs key release
+        keyDown(): Performs keypress without release
+        shift + Type,
+        tab, CTLR, Keys, space
+

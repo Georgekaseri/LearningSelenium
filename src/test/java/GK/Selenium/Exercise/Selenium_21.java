@@ -32,8 +32,10 @@ public class Selenium_21 {
 
         WebElement email = driver.findElement(By.xpath("//input[@id='login-username']"));
         email.sendKeys("georgekaseri22@gmail.com");
+
         WebElement password = driver.findElement(By.xpath("//*[@id=\"login-password\"]"));
         password.sendKeys("Hyderabad");
+
         WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"js-login-btn\"]"));
         submitBtn.click();
 

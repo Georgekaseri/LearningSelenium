@@ -2,7 +2,6 @@ package GK.Selenium.Exercise;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +11,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Selenium_33 {
+import java.util.List;
+
+public class Selenium_35 {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,20 +27,21 @@ public class Selenium_33 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.spicejet.com/";
+        String URL = ("https://app.vwo.com/#/test/ab/13/heatmaps/1?token=eyJhY2NvdW50X2lkIjo2NjY0MDAsImV4cGVyaW1lbnRfaWQiOjEzLCJjcmVhdGVkX29uIjoxNjcxMjA1MDUwLCJ0eXBlIjoiY2FtcGFpZ24iLCJ2ZXJzaW9uIjoxLCJoYXNoIjoiY2IwNzBiYTc5MDM1MDI2N2QxNTM5MTBhZDE1MGU1YTUiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9&isHttpsOnly=1");
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement originalFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-origin\"]/div/div/input"));
+
+
+        Thread.sleep(4000);
+
+
+        List<WebElement> list_heatmaps = driver.findElements(By.cssSelector("[data-qa=\"yedexafobi\"]"));
+//        list_heatmaps.get(1).click();
 
         Actions actions = new Actions(driver);
-        actions.moveToElement(originalFlight).click().build().perform();
-        actions.moveToElement(originalFlight).sendKeys("HYD").build().perform();
+        actions.moveToElement(list_heatmaps.get(1)).click().build().perform();
 
-        WebElement destinationFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-destination\"]/div/div/input"));
-
-        actions.moveToElement(destinationFlight).click().build().perform();
-        actions.moveToElement(destinationFlight).sendKeys("DEL").build().perform();
 
 
 

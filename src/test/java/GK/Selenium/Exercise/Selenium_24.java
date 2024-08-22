@@ -30,7 +30,7 @@ public class Selenium_24 {
 
        WebElement element_select = driver.findElement(By.xpath("//select[@id=\"dropdown\"]"));
         Select select = new Select(element_select);
-        select.selectByIndex(1);
+//        select.selectByIndex(2);
         select.selectByVisibleText("Option 2");
 
 

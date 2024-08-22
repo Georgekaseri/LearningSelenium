@@ -1,10 +1,8 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.Action_Classes;
 
 import io.qameta.allure.Description;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -12,7 +10,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Selenium_33 {
+public class Mouse_Page_Down {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,21 +24,17 @@ public class Selenium_33 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.spicejet.com/";
+        String URL = "https://www.makemytrip.com/";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement originalFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-origin\"]/div/div/input"));
+
+
+
 
         Actions actions = new Actions(driver);
-        actions.moveToElement(originalFlight).click().build().perform();
-        actions.moveToElement(originalFlight).sendKeys("HYD").build().perform();
-
-        WebElement destinationFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-destination\"]/div/div/input"));
-
-        actions.moveToElement(destinationFlight).click().build().perform();
-        actions.moveToElement(destinationFlight).sendKeys("DEL").build().perform();
-
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        System.out.println("Page Scroll Down ");
 
 
 
@@ -54,6 +48,6 @@ public class Selenium_33 {
 
             @AfterTest
             public void closeBrowser () {
-                driver.quit();
+//                driver.quit();
             }
         }

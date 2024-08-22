@@ -1,4 +1,4 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.Action_Classes;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Selenium_33 {
+public class Mouse_RightClick {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,24 +26,20 @@ public class Selenium_33 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.spicejet.com/";
+        String URL = "https://awesomeqa.com/practice.html";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement originalFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-origin\"]/div/div/input"));
+        WebElement firstName = driver.findElement(By.name("firstname"));
+
 
         Actions actions = new Actions(driver);
-        actions.moveToElement(originalFlight).click().build().perform();
-        actions.moveToElement(originalFlight).sendKeys("HYD").build().perform();
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys(firstName,"hello there")
+                .keyUp(Keys.SHIFT).build().perform();
 
-        WebElement destinationFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-destination\"]/div/div/input"));
-
-        actions.moveToElement(destinationFlight).click().build().perform();
-        actions.moveToElement(destinationFlight).sendKeys("DEL").build().perform();
-
-
-
-
+        WebElement rightClick = driver.findElement(By.xpath("//a[contains(text(),'Click here to Download File')]"));
+        actions.contextClick(rightClick).build().perform();
 
 
 

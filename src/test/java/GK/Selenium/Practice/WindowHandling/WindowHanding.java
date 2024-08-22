@@ -1,18 +1,18 @@
-package GK.Selenium.Exercise;
+package GK.Selenium.Practice.WindowHandling;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Selenium_33 {
+import java.util.Set;
+
+public class WindowHanding {
     ChromeDriver driver;
 
     @BeforeTest
@@ -26,20 +26,32 @@ public class Selenium_33 {
     @Test(groups = "QA")
     @Description("Static Dropdown")
     public void testSearchItem() throws InterruptedException {
-        String URL = "https://www.spicejet.com/";
+        String URL = "https://the-internet.herokuapp.com/windows";
         driver.get(URL);
         driver.manage().window().maximize();
 
-        WebElement originalFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-origin\"]/div/div/input"));
 
-        Actions actions = new Actions(driver);
-        actions.moveToElement(originalFlight).click().build().perform();
-        actions.moveToElement(originalFlight).sendKeys("HYD").build().perform();
+        String mainWindowHanding = driver.getWindowHandle();
 
-        WebElement destinationFlight = driver.findElement(By.xpath("//*[@data-testid=\"to-testID-destination\"]/div/div/input"));
+        WebElement clickHere = driver.findElement(By.linkText("Click Here"));
+        clickHere.click();
 
-        actions.moveToElement(destinationFlight).click().build().perform();
-        actions.moveToElement(destinationFlight).sendKeys("DEL").build().perform();
+        Set<String> windowHandles = driver.getWindowHandles();
+        for (String handle : windowHandles){
+            driver.switchTo().window(handle);
+            if (driver.getPageSource().contains("New Window")){
+                System.out.println("Test Case is Passed");
+            }
+        }
+
+        driver.switchTo().window(mainWindowHanding);
+        Thread.sleep(3000);
+
+
+
+
+
+
 
 
 

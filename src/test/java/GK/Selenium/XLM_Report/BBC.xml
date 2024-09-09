@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="/Users/george/Documents/LearningSelenium/src/test/java/GK/Selenium/Practice/Make_Appointment.java">
+          name="/Users/george/Documents/LearningSelenium/src/test/java/GK/Selenium/Practice/Challenges/BBCSearchTest.java">
         <classes>
-            <class name="GK.Selenium.Practice.Mixed.Make_Appointment">
+            <class name="GK.Selenium.Practice.Challenges.BBCSearchTest">
                 <methods>
-                    <include name="testBookingAppointment"/>
+                    <include name="testSearchItem"/>
                 </methods>
             </class>
         </classes>

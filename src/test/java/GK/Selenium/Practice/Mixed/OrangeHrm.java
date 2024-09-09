@@ -30,8 +30,8 @@ public class OrangeHrm {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().window().maximize();
 
-        WebElement useName = driver.findElement(By.xpath("//*[@name=\"username\"]"));
-        useName.sendKeys("Admin");
+        WebElement userName = driver.findElement(By.xpath("//*[@name=\"username\"]"));
+        userName.sendKeys("Admin");
 
         WebElement passwordInput = driver.findElement(By.xpath("//*[@type=\"password\"]"));
         passwordInput.sendKeys("admin123");
@@ -44,6 +44,9 @@ public class OrangeHrm {
 
         String dashBoard = driver.findElement(By.xpath("//*[@class=\"oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module\"]")).getText();
         System.out.println("This is test : - "  + dashBoard);
+
+
+
 
 
 

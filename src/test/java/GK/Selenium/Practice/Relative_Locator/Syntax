@@ -1,0 +1,70 @@
+above()
+below()
+toLeftOf()
+toRightOf()
+near()
+
+1. above()
+above() is used to locate the web element(s) just above the specified element.
+
+Syntax:
+
+To locate element(s) that is above a specific locator:
+
+above(By locator)
+
+To locate element(s) that is above a specific web element:
+
+above(WebElement element)
+
+2. below()
+below() is used to locate the web element(s) just below the specified element.
+
+Syntax:
+
+To locate element that is below a specific locator:
+
+below(By locator)
+
+To locate element that is below a specific web element:
+
+below(WebElement element)
+
+3. toLeftOf()
+It is used to locate the web element(s) present on the left of the specified element.
+
+Syntax:
+
+To locate element that is to the left a specific locator:
+
+toLeftOf(By locator)
+
+To locate element that is to the left a specific web element:
+
+toLeftOf(WebElement element)
+
+4. toRightOf()
+It is used to locate the web element(s) present on the right of the specified element.
+
+Syntax:
+
+To locate element that is to the right a specific locator:
+
+toRightOf(By locator)
+
+To locate element that is to the right a specific web element:
+
+toRightOf(WebElement element)
+
+5. near()
+It is used to locate the web element(s) located at approximately 50 pixels away from the specified element. The distance can be passed as an argument to an overloaded method
+
+Syntax:
+
+near(By locator)
+
+near(WebElement element)
+
+near(By locator, int atMostDistanceInPixels)
+
+near(WebElement element, int atMostDistanceInPixels)

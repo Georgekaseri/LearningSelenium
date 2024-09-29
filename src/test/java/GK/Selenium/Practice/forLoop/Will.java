@@ -31,12 +31,22 @@ public class Will {
         driver.get("https://www.williamhill.com/");
         driver.manage().window().maximize();
 
-//      WebElement kingMill = driver.findElements(By.xpath("//*[@class=\"more_verticals_list\"]/li[1]"));
-//      kingMill.click();
+//
 
         Thread.sleep(3000);
-        WebElement joint = driver.findElement(By.xpath("//*[@class=\"more_verticals_list\"]/li[1]"));
-        joint.click();
+//
+        List<WebElement> clickOnMill = driver.findElements(By.xpath("//*[@class=\"more_verticals_item\"]"));
+
+        int i = 0;
+        for (WebElement el : clickOnMill){
+            System.out.println(el.getText());
+            if (i == 2){
+                el.click();
+            }
+            i++;
+        }
+
+        Thread.sleep(3000);
 
 
     }

@@ -34,7 +34,7 @@ public class VwoDashBoard {
         WebElement email = driver.findElement(By.xpath("//input[@id='login-username']"));
         email.sendKeys("georgekaseri22@gmail.com");
         WebElement password = driver.findElement(By.xpath("//*[@id=\"login-password\"]"));
-        password.sendKeys("Leeds85@");
+        password.sendKeys("Hyderabad85@");
         WebElement submitBtn = driver.findElement(By.xpath("//*[@id=\"js-login-btn\"]"));
         submitBtn.click();
 
